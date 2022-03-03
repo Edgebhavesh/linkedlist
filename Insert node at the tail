@@ -1,0 +1,13 @@
+public static Node addElement(Node head, int k) {
+//enter your code here
+Node new_node=new Node(k);
+
+Node temp=head;
+while(temp.next!=null)
+{
+temp=temp.next;
+}
+temp.next=new_node;
+
+return head;
+}
