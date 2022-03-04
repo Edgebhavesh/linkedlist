@@ -1,0 +1,15 @@
+public static Node ReverseLinkedList(Node head) {
+		// return the head of the modified linked list
+        Node next =null;
+        Node pre = null;
+        Node curr =head;
+
+        while(curr!=null)
+        {
+            next=curr.next;
+            curr.next=pre;
+            pre=curr;
+            curr=next;
+        }
+        return pre;
+    }
