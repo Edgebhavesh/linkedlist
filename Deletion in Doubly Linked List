@@ -1,0 +1,33 @@
+public static Node deleteElement(Node head,int k) {
+//enter your code here
+int count=0;
+Node temp=head;
+
+while(temp!=null)
+{
+    count++;
+    temp=temp.next;
+}
+
+int pos=count-k;
+
+if(pos==0)
+{
+    head=head.next;
+    head.prev=null;
+    return head;
+}
+int cnt=0;
+temp=head;
+while(cnt!=pos-1)
+{
+    cnt++;
+    temp=temp.next;
+}
+
+temp.next=temp.next.next;
+temp.next.prev=temp;
+
+return head;
+
+}
