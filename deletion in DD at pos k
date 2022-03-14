@@ -1,0 +1,45 @@
+/*
+
+class Node {
+    Node next;
+    Node prev;
+    int val;
+
+    Node(int val) {
+        this.val = val;
+        next = null;
+        prev = null;
+    }
+}
+*/
+public static Node deleteElement(Node head,int k) {
+//enter your code here
+
+Node start=head;
+Node tail=head;
+
+while(k-->0)
+  tail=tail.next;
+
+ if(tail==null)
+ {
+     start=start.next;
+     return start;
+ } 
+ while(tail.next!=null)
+ {
+     start=start.next;
+     tail=tail.next;
+ }
+
+  if(start.next.next == null){
+        //deleting element;
+        start.next = null;
+        return head;
+    }
+
+    start.next = start.next.next;
+
+    return head;
+
+}
