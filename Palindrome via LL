@@ -1,0 +1,21 @@
+ListNode temp=head;
+    ListNode curr=head;
+    int cnt=0;
+    while(temp!=null)
+    {
+        st.push(temp.val);
+        cnt++;
+        temp=temp.next;
+    }
+    
+    int check=0;
+    while(check!=cnt/2)
+    {
+        if(curr.val!=st.pop())
+        {
+            return false;
+        }
+        curr=curr.next;
+        check++;
+    }
+    return true;
