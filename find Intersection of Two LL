@@ -1,0 +1,52 @@
+public class Solution {
+     private ListNode moveHead(ListNode head,int z)
+        {
+            while(z>0)
+            {
+                head=head.next;
+                z--;
+            }
+            return head;
+        }
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode temp=headA;
+        ListNode curr=headB;
+        int lenA=0;
+        int lenB=0;
+        while(temp!=null){
+            lenA++;
+            temp=temp.next;
+        }
+        while(curr!=null)
+        {
+            lenB++;
+            curr=curr.next;
+        }
+        
+        int x=lenA-lenB;
+        int y=lenB-lenA;
+        
+        if(x>y)
+        {
+            headA=moveHead(headA,x);
+        }
+        else
+        {
+            headB=moveHead(headB,y);
+        }
+       
+        if(headA==headB)
+            return headA;
+        
+        while(headA!=null && headB!=null)
+        {
+            if(headA.next==headB.next)
+            {
+                return headA.next;
+            }
+            headA=headA.next;
+            headB=headB.next;
+        }
+        return null;
+    }
+}
