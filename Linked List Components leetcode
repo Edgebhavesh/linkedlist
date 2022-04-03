@@ -1,0 +1,28 @@
+Set<Integer> set=new HashSet<Integer>();
+        for(int num:nums)
+        {
+            set.add(num);
+        }
+        boolean check=false;
+        int ans=0;
+        while(head!=null)
+        {
+            if(set.contains(head.val))
+            {
+                check=true;
+            }
+            else
+            {
+                if(check)
+                {
+                    ans++;
+                }
+                check=false;
+            }
+            head=head.next;
+        }
+        if(check)
+        {
+            ans++;
+        }
+        return ans;  
