@@ -1,0 +1,29 @@
+ Set<Integer> set =new HashSet<>();
+	    while(head2!=null)
+	    {
+	        set.add(head2.data);
+	        head2=head2.next;
+	    }
+	    while(head1!=null)
+	    {
+	        if(set.contains(head1.data))
+	        {
+	            head1=head1.next;
+	        }
+	        else{
+	            set.add(head1.data);
+	            head1=head1.next;
+	        }
+	    }
+	    ArrayList<Integer> list=new ArrayList<>(set);
+	    Collections.sort(list);
+	    
+	    Node dummy=new Node(-1);
+	    Node temp=dummy;
+	    for(int i:list)
+	    {
+	        Node newnode=new Node(i);
+	        temp.next=newnode;
+	        temp=temp.next;
+	    }
+	    return dummy.next;
